@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function() {
   return (
-    <form>
+    <form className="add-task">
       <input />
     </form>
   );
