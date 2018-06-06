@@ -4,13 +4,16 @@ import ListItem from './ListItem';
 class List extends Component {
   render() {
     return (
-      <ul className="list">
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
-      </ul>
+      <div className="list">
+        <ul>
+          <ListItem />
+          <ListItem />
+          <ListItem />
+          <ListItem />
+          <ListItem />
+        </ul>
+        <p>? tasks left</p>
+      </div>
     );
   }
 }
