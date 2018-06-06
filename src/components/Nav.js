@@ -4,7 +4,7 @@ export default function() {
   return (
     <nav>
       <ul>
-        <li>My Tasks</li>
+        <li className="active">My Tasks</li>
         <li>In Progress</li>
         <li>Completed</li>
       </ul>
