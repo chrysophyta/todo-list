@@ -21,7 +21,7 @@ body {
 .app {
   margin: auto;
   background: #e1e1e1;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 ul > li {
@@ -103,5 +103,11 @@ nav ul li.active {
 }
 .content-icons {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
+  margin-left: 30px;
+}
+.content-icons svg {
+  height: 15px;
+  width: 15px;
+  margin: 5px;
 }
