@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 
 class ListItem extends Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
+    const { data } = this.props;
     return (
       <li className="list-item">
         <div className="list-labels">
           <input type="checkbox" />
-          <h3 className="item-title">Title</h3>
+          <h3 className="item-title">{data.title}</h3>
           <span>
             <i data-feather="star" />
           </span>
