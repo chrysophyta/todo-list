@@ -7,9 +7,9 @@
 }
 select,
 input {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+  /* -webkit-appearance: none; */
+  /* -moz-appearance: none; */
+  /* appearance: none; */
   border: 1px solid darkgrey;
   background: white;
 }
@@ -100,6 +100,14 @@ nav ul li.active {
 .list-labels input[type='checkbox'] {
   height: 20px;
   width: 20px;
+}
+.list-labels input[type='checkbox']:checked:after {
+  content: '\2714';
+  font-size: 14px;
+  position: absolute;
+  top: 0px;
+  left: 3px;
+  color: #99a1a7;
 }
 .content-icons {
   display: flex;

@@ -1,32 +1,37 @@
 import React, { Component } from 'react';
+import feather from 'feather-icons';
+import Icons from './icons';
 
 class ListItem extends Component {
   constructor(props) {
     super(props);
   }
+  handleClick = e => {
+    this.props.checkItemComplete(e, this.props.data.id);
+  };
   render() {
     const { data } = this.props;
     return (
       <li className="list-item">
         <div className="list-labels">
-          <input type="checkbox" />
+          <input type="checkbox" onClick={this.handleClick} />
           <h3 className="item-title">{data.title}</h3>
           <span>
-            <i data-feather="star" />
+            <Icons iconName="star" />
           </span>
           <span>
-            <i data-feather="edit-2" />
+            <Icons iconName="edit-2" />
           </span>
         </div>
         <div className="content-icons">
           <span>
-            <i data-feather="message-square" />
+            <Icons iconName="message-square" />
           </span>
           <span>
-            <i data-feather="file" />
+            <Icons iconName="file" />
           </span>
           <span>
-            <i data-feather="clock" />
+            <Icons iconName="clock" />
           </span>
         </div>
       </li>

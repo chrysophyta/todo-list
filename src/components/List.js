@@ -6,16 +6,45 @@ class List extends Component {
     super(props);
   }
   render() {
-    return (
-      <div className="list">
-        <ul>
-          {this.props.data.map(item => {
-            return <ListItem data={item} key={item.id} />;
-          })}
-        </ul>
-        <p>{this.props.data.length} tasks left</p>
-      </div>
-    );
+    const { checkItemComplete } = this.props;
+    if (this.props.showList === 'completed') {
+      return (
+        <div className="list">
+          <ul>
+            {this.props.data.map(item => {
+              if (item.completed) {
+                return <ListItem {...this.props} data={item} key={item.id} />;
+              }
+            })}
+          </ul>
+          <p>{this.props.data.length} tasks left</p>
+        </div>
+      );
+    } else if (this.props.showList === 'myTasks') {
+      return (
+        <div className="list">
+          <ul>
+            {this.props.data.map(item => {
+              return <ListItem {...this.props} data={item} key={item.id} />;
+            })}
+          </ul>
+          <p>{this.props.data.length} tasks left</p>
+        </div>
+      );
+    } else {
+      return (
+        <div className="list">
+          <ul>
+            {this.props.data.map(item => {
+              if (!item.completed) {
+                return <ListItem {...this.props} data={item} key={item.id} />;
+              }
+            })}
+          </ul>
+          <p>{this.props.data.length} tasks left</p>
+        </div>
+      );
+    }
   }
 }
 
