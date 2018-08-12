@@ -3,6 +3,7 @@ import Nav from './Nav';
 import AddTask from './AddTask';
 import List from './List';
 import feather from 'feather-icons';
+import uuid from 'uuid';
 
 class App extends Component {
   constructor(props) {
@@ -10,10 +11,10 @@ class App extends Component {
     this.state = {
       addTask: '',
       data: [
-        { title: 'item1', content: 'item1', completed: false, id: 1 },
-        { title: 'item2', content: 'item2', completed: false, id: 2 },
-        { title: 'item3', content: 'item3', completed: false, id: 3 },
-        { title: 'item4', content: 'item4', completed: false, id: 4 }
+        { title: 'item1', content: 'item1', completed: false, id: uuid() },
+        { title: 'item2', content: 'item2', completed: false, id: uuid() },
+        { title: 'item3', content: 'item3', completed: false, id: uuid() },
+        { title: 'item4', content: 'item4', completed: false, id: uuid() }
       ],
       onTab: 'myTasks'
     };
@@ -31,7 +32,7 @@ class App extends Component {
         title: this.state.addTask,
         content: '',
         completed: false,
-        id: 123
+        id: uuid()
       })
     });
   };

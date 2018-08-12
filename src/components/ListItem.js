@@ -11,6 +11,7 @@ class ListItem extends Component {
   };
   render() {
     const { data } = this.props;
+    console.log(this.props.data.id)
     return (
       <li className="list-item">
         <div className="list-labels">
