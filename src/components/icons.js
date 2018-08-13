@@ -5,9 +5,6 @@ const starredStyle = {
     fill: "yellow"
 }
 class Icons extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     let SVGcontext;

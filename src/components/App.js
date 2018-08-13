@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Nav from './Nav';
 import AddTask from './AddTask';
 import List from './List';
-import feather from 'feather-icons';
 import uuid from 'uuid';
 
 class App extends Component {

@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import ListItem from './ListItem';
 
 class List extends Component {
-  constructor(props) {
-    super(props);
-  }
   renderList=()=>{
     if (this.props.showList === 'completed') {
       return (

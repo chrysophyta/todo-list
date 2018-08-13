@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-import feather from 'feather-icons';
 import Icons from './icons';
 
 class ListItem extends Component {
-  constructor(props) {
-    super(props);
-  }
   handleClick = (key) => {
     this.props.toggleItem(this.props.data.id,key);
   };
