@@ -31,6 +31,7 @@ class App extends Component {
         title: this.state.addTask,
         content: '',
         completed: false,
+        starred:false,
         id: uuid()
       })
     });

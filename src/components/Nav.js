@@ -6,7 +6,7 @@ export default class Nav extends Component {
     super(props);
     this.state = {
       myTasks: true,
-      inProgress: false,
+      starred: false,
       completed: false
     };
   }
@@ -23,19 +23,19 @@ export default class Nav extends Component {
   };
 
   render() {
-    const { myTasks, inProgress, completed } = this.state;
+    const { myTasks, starred, completed } = this.state;
     return (
       <nav>
         <ul>
           <NavItem
-            label="My Task"
+            label="My Tasks"
             isActive={myTasks}
             onSelect={() => this.selectNavItem('myTasks')}
           />
           <NavItem
-            label="In Progress"
-            isActive={inProgress}
-            onSelect={() => this.selectNavItem('inProgress')}
+            label="Starred"
+            isActive={starred}
+            onSelect={() => this.selectNavItem('starred')}
           />
           <NavItem
             label="Completed"

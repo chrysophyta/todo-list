@@ -21,8 +21,11 @@ class List extends Component {
         <div className="list">
           <ul>
             {this.props.data.map(item => {
-              return <ListItem {...this.props} data={item} key={item.id} />;
-            })}
+              if (!item.completed) {
+                return <ListItem {...this.props} data={item} key={item.id} />;
+              }} 
+            )
+            }
           </ul>
           <p>{this.props.data.length} tasks left</p>
         </div>
@@ -32,7 +35,7 @@ class List extends Component {
         <div className="list">
           <ul>
             {this.props.data.map(item => {
-              if (!item.completed) {
+              if (item.starred) {
                 return <ListItem {...this.props} data={item} key={item.id} />;
               }
             })}
