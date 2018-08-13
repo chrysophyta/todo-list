@@ -5,25 +5,20 @@ import Icons from './icons';
 class ListItem extends Component {
   constructor(props) {
     super(props);
-    this.state={
-      starred:false
-    }
   }
-  handleClick = e => {
-    this.props.checkItemComplete(e, this.props.data.id);
+  handleClick = (key) => {
+    this.props.toggleItem(this.props.data.id,key);
   };
-  handleStarClick = e =>{
-    this.setState({starred:!this.state.starred})
-  }
+
   render() {
     const { data } = this.props;
     return (
       <li className="list-item">
         <div className="list-labels">
-          <input type="checkbox" onClick={this.handleClick} />
+          <input type="checkbox" onClick={()=>this.handleClick('completed')} />
           <h3 className="item-title">{data.title}</h3>
-          <span onClick={this.handleStarClick}>
-            <Icons iconName="star" starred={this.state.starred} />
+          <span onClick={()=>this.handleClick('starred')}>
+            <Icons iconName="star" starred={data.starred} />
           </span>
           <span>
             <Icons iconName="edit-2" />

@@ -11,10 +11,10 @@ class App extends Component {
     this.state = {
       addTask: '',
       data: [
-        { title: 'item1', content: 'item1', completed: false, id: uuid() },
-        { title: 'item2', content: 'item2', completed: false, id: uuid() },
-        { title: 'item3', content: 'item3', completed: false, id: uuid() },
-        { title: 'item4', content: 'item4', completed: false, id: uuid() }
+        { title: 'item1', content: 'item1', starred:false,completed: false, id: uuid() },
+        { title: 'item2', content: 'item2', starred:false,completed: false, id: uuid() },
+        { title: 'item3', content: 'item3', starred:false,completed: false, id: uuid() },
+        { title: 'item4', content: 'item4', starred:false,completed: false, id: uuid() }
       ],
       onTab: 'myTasks'
     };
@@ -36,17 +36,17 @@ class App extends Component {
       })
     });
   };
-  checkItemComplete = (e, id) => {
+  toggleItem = (id,key) => {
     const { data } = this.state;
-    console.log(`${id}:${e}`);
+    // console.log(`${id}:${e}`);
     data.forEach(item => {
       if (item.id === id) {
-        item.completed = !item.completed;
+        item[key] = !item[key];
       }
     });
     this.setState({ ...data });
-    // console.log(data);
   };
+
   handlePaging = selected => {
     // console.log(`from app:${selected}`);
     this.setState({ onTab: selected });
@@ -64,7 +64,8 @@ class App extends Component {
         <List
           data={this.state.data}
           showList={this.state.onTab}
-          checkItemComplete={this.checkItemComplete}
+          toggleItem={this.toggleItem}
+          checkItemStar={this.checkItemStar}
         />
       </div>
     );
