@@ -5,8 +5,7 @@ class List extends Component {
   constructor(props) {
     super(props);
   }
-  render() {
-    const { checkItemComplete } = this.props;
+  renderList=()=>{
     if (this.props.showList === 'completed') {
       return (
         <div className="list">
@@ -45,6 +44,9 @@ class List extends Component {
         </div>
       );
     }
+  }
+  render() {
+    return this.renderList();
   }
 }
 
