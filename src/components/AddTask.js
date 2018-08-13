@@ -8,6 +8,11 @@ export default function(props) {
         value={props.value}
         onChange={props.onChange}
       />
+      {ItemForm}
     </form>
   );
 }
+
+const ItemForm = (
+  <div>HI</div>
+)
