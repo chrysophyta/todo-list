@@ -11,7 +11,7 @@ class ListItem extends Component {
     return (
       <li className="list-item">
         <div className="list-labels">
-          <input type="checkbox" onClick={()=>this.handleClick('completed')} />
+          <input type="checkbox" onChange={()=>this.handleClick('completed')} checked={data.completed}/>
           <h3 className="item-title">{data.title}</h3>
           <span onClick={()=>this.handleClick('starred')}>
             <Icons iconName="star" starred={data.starred} />
