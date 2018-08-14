@@ -52,16 +52,26 @@ class ListItem extends Component {
     this.props.toggleItem(this.props.data.id, key);
   };
   renderIcons = () => {
-    if (this.props.data.content) {
-      return <Icons iconName="message-square" />;
+    const { content, due } = this.props.data;
+    if (content && due) {
+      return (
+        <span>
+          <Icons iconName="message-square" />
+          <Icons iconName="clock" />
+          {due}
+        </span>
+      );
     }
-    if (this.props.data.due) {
+    if (due) {
       return (
         <span>
           <Icons iconName="clock" />
-          {this.props.data.due}
+          {due}
         </span>
       );
+    }
+    if (content) {
+      return <Icons iconName="message-square" />;
     }
   };
   render() {

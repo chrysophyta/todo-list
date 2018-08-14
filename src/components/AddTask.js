@@ -62,11 +62,13 @@ class AddTask extends Component {
           name="content"
           placeholder="Notes for the task"
           type="text"
+          value={this.state.content}
           onChange={this.onContentChange}
         />
         <input
           name="duetime"
           type="datetime-local"
+          value={this.state.due}
           onChange={this.onTimeChange}
         />
 
