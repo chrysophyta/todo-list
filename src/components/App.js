@@ -10,33 +10,47 @@ class App extends Component {
     this.state = {
       addTask: '',
       data: [
-        { title: 'item1', content: 'item1', starred:false,completed: false, id: uuid() },
-        { title: 'item2', content: 'item2', starred:false,completed: false, id: uuid() },
-        { title: 'item3', content: 'item3', starred:false,completed: false, id: uuid() },
-        { title: 'item4', content: 'item4', starred:false,completed: false, id: uuid() }
+        {
+          title: 'item1',
+          content: 'item1',
+          starred: false,
+          completed: false,
+          id: uuid()
+        },
+        {
+          title: 'item2',
+          content: 'item2',
+          starred: false,
+          completed: false,
+          id: uuid()
+        },
+        {
+          title: 'item3',
+          content: 'item3',
+          starred: false,
+          completed: false,
+          id: uuid()
+        },
+        {
+          title: 'item4',
+          content: 'item4',
+          starred: false,
+          completed: false,
+          id: uuid()
+        }
       ],
       onTab: 'myTasks'
     };
   }
 
-  onInputChange = event => {
-    this.setState({ addTask: event.target.value });
-  };
-  onSubmit = event => {
+  onSubmit = (item, event) => {
     event.preventDefault();
     console.log('submitted');
     this.setState({
-      addTask: '',
-      data: this.state.data.concat({
-        title: this.state.addTask,
-        content: '',
-        completed: false,
-        starred:false,
-        id: uuid()
-      })
+      data: this.state.data.concat(item)
     });
   };
-  toggleItem = (id,key) => {
+  toggleItem = (id, key) => {
     const { data } = this.state;
     // console.log(`${id}:${e}`);
     data.forEach(item => {
@@ -56,11 +70,7 @@ class App extends Component {
     return (
       <div className="app">
         <Nav handlePaging={this.handlePaging} />
-        <AddTask
-          value={this.state.addTask}
-          onChange={this.onInputChange}
-          onSubmit={this.onSubmit}
-        />
+        <AddTask onSubmit={this.onSubmit} />
         <List
           data={this.state.data}
           showList={this.state.onTab}
