@@ -6,50 +6,36 @@ class List extends Component {
     let itemsLeft = this.props.data.filter(item => !item.completed);
     return itemsLeft.length;
   };
-  renderList = () => {
-    if (this.props.showList === 'completed') {
-      return (
-        <div className="list">
-          <ul>
-            {this.props.data.map(item => {
-              if (item.completed) {
-                return <ListItem {...this.props} data={item} key={item.id} />;
-              }
-            })}
-          </ul>
-          <p>{this.calcItemsLeft()} tasks left</p>
-        </div>
-      );
-    } else if (this.props.showList === 'myTasks') {
-      return (
-        <div className="list">
-          <ul>
-            {this.props.data.map(item => {
-              if (!item.completed) {
-                return <ListItem {...this.props} data={item} key={item.id} />;
-              }
-            })}
-          </ul>
-          <p>{this.calcItemsLeft()} tasks left</p>
-        </div>
-      );
+  renderList = list => {
+    if (list === 'completed') {
+      let listData = this.props.data
+        .filter(item => item.completed)
+        .map(item => {
+          return <ListItem {...this.props} data={item} key={item.id} />;
+        });
+      return listData;
+    } else if (list === 'myTasks') {
+      let listData = this.props.data
+        .filter(item => !item.completed)
+        .map(item => {
+          return <ListItem {...this.props} data={item} key={item.id} />;
+        });
+      return listData;
     } else {
-      return (
-        <div className="list">
-          <ul>
-            {this.props.data.map(item => {
-              if (item.starred) {
-                return <ListItem {...this.props} data={item} key={item.id} />;
-              }
-            })}
-          </ul>
-          <p>{this.calcItemsLeft()} tasks left</p>
-        </div>
-      );
+      let listData = this.props.data.filter(item => item.starred).map(item => {
+        return <ListItem {...this.props} data={item} key={item.id} />;
+      });
+      return listData;
     }
   };
+
   render() {
-    return this.renderList();
+    return (
+      <div className="list">
+        <ul>{this.renderList(this.props.showList)}</ul>
+        <p>{this.calcItemsLeft()} tasks left</p>
+      </div>
+    );
   }
 }
 
