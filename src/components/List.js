@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import ListItem from './ListItem';
 
 class List extends Component {
-  renderList=()=>{
+  calcItemsLeft = () => {
+    let itemsLeft = this.props.data.filter(item => !item.completed);
+    return itemsLeft.length;
+  };
+  renderList = () => {
     if (this.props.showList === 'completed') {
       return (
         <div className="list">
@@ -13,7 +17,7 @@ class List extends Component {
               }
             })}
           </ul>
-          <p>{this.props.data.length} tasks left</p>
+          <p>{this.calcItemsLeft()} tasks left</p>
         </div>
       );
     } else if (this.props.showList === 'myTasks') {
@@ -23,11 +27,10 @@ class List extends Component {
             {this.props.data.map(item => {
               if (!item.completed) {
                 return <ListItem {...this.props} data={item} key={item.id} />;
-              }} 
-            )
-            }
+              }
+            })}
           </ul>
-          <p>{this.props.data.length} tasks left</p>
+          <p>{this.calcItemsLeft()} tasks left</p>
         </div>
       );
     } else {
@@ -40,11 +43,11 @@ class List extends Component {
               }
             })}
           </ul>
-          <p>{this.props.data.length} tasks left</p>
+          <p>{this.calcItemsLeft()} tasks left</p>
         </div>
       );
     }
-  }
+  };
   render() {
     return this.renderList();
   }
