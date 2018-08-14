@@ -40,6 +40,11 @@ const StyledListItem = styled.li`
     width: 15px;
     margin: 5px;
   }
+  .content-icons span {
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+  }
 `;
 
 class ListItem extends Component {
