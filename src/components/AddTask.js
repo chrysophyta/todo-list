@@ -15,7 +15,7 @@ const StyledForm = styled.form`
     color: lightgray;
   }
   input[type='submit'] {
-    background: pink;
+    background: #4a90e2;
     color: white;
     justify-self: flex-end;
   }
