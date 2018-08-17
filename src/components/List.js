@@ -1,5 +1,15 @@
 import React, { Component } from 'react';
 import ListItem from './ListItem';
+import styled from 'styled-components';
+
+const StyledList = styled.div`
+  width: 460px;
+  display: flex;
+  flex-direction: column;
+  p {
+    color: darkgrey;
+  }
+`;
 
 class List extends Component {
   calcItemsLeft = () => {
@@ -31,10 +41,10 @@ class List extends Component {
 
   render() {
     return (
-      <div className="list">
+      <StyledList>
         <ul>{this.renderList(this.props.showList)}</ul>
         <p>{this.calcItemsLeft()} tasks left</p>
-      </div>
+      </StyledList>
     );
   }
 }

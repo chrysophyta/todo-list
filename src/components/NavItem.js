@@ -1,4 +1,20 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const StyledNavItem = styled.li`
+  height: 100%;
+  width: calc(100% / 3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.5px;
+  font-weight: 300;
+  & > .active {
+    color: white;
+    border-bottom: #00408b 4px solid;
+    font-weight: 400;
+  }
+`;
 
 export default function(props) {
   let className = 'menu-item';
@@ -6,8 +22,8 @@ export default function(props) {
     className += ' active';
   }
   return (
-    <li className={className} onClick={props.onSelect}>
+    <StyledNavItem className={className} onClick={props.onSelect}>
       {props.label}
-    </li>
+    </StyledNavItem>
   );
 }

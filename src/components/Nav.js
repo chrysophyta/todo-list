@@ -1,6 +1,21 @@
 import React, { Component } from 'react';
 import NavItem from './NavItem';
 
+import styled from 'styled-components';
+
+const StyledNav = styled.nav`
+  color: black;
+  font-size: 18px;
+  height: 55px;
+  ul {
+    display: flex;
+    height: 100%;
+    width: 460px;
+    justify-content: space-around;
+    align-items: center;
+  }
+`;
+
 export default class Nav extends Component {
   constructor(props) {
     super(props);
@@ -25,7 +40,7 @@ export default class Nav extends Component {
   render() {
     const { myTasks, starred, completed } = this.state;
     return (
-      <nav>
+      <StyledNav>
         <ul>
           <NavItem
             label="My Tasks"
@@ -43,7 +58,7 @@ export default class Nav extends Component {
             onSelect={() => this.selectNavItem('completed')}
           />
         </ul>
-      </nav>
+      </StyledNav>
     );
   }
 }

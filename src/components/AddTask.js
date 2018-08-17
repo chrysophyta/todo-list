@@ -5,7 +5,6 @@ import uuid from 'uuid';
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
-  margin: 20px;
   input {
     height: 45px;
     width: 460px;
@@ -13,11 +12,20 @@ const StyledForm = styled.form`
     padding-left: 20px;
     font-size: 16px;
     color: lightgray;
+    background: none;
+    border: none;
+    border-bottom: 1px solid black;
+  }
+  input:focus {
+    outline: none;
   }
   input[type='submit'] {
     background: #4a90e2;
     color: white;
     justify-self: flex-end;
+  }
+  .hide {
+    display: none;
   }
 `;
 
@@ -64,15 +72,17 @@ class AddTask extends Component {
           type="text"
           value={this.state.content}
           onChange={this.onContentChange}
+          className="hide"
         />
         <input
           name="duetime"
           type="datetime-local"
           value={this.state.due}
           onChange={this.onTimeChange}
+          className="hide"
         />
 
-        <input type="submit" value="Add" />
+        <input type="submit" value="Add" className="hide" />
       </StyledForm>
     );
   }

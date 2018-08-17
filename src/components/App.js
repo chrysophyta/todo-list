@@ -3,6 +3,24 @@ import Nav from './Nav';
 import AddTask from './AddTask';
 import List from './List';
 import uuid from 'uuid';
+import styled from 'styled-components';
+
+const StyledApp = styled.div`
+  min-height: 100vh;
+  width: 460px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  .title {
+    margin-top: 10vh;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display';
+    display: block;
+    width: 100%;
+  }
+`;
 
 class App extends Component {
   constructor(props) {
@@ -68,16 +86,17 @@ class App extends Component {
 
   render() {
     return (
-      <div className="app">
-        <Nav handlePaging={this.handlePaging} />
+      <StyledApp className="app">
+        <h1 className="title">To Do List </h1>
         <AddTask onSubmit={this.onSubmit} />
+        <Nav handlePaging={this.handlePaging} />
         <List
           data={this.state.data}
           showList={this.state.onTab}
           toggleItem={this.toggleItem}
           checkItemStar={this.checkItemStar}
         />
-      </div>
+      </StyledApp>
     );
   }
 }

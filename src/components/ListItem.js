@@ -18,17 +18,20 @@ const StyledListItem = styled.li`
     flex-basis: 325px;
     font-size: 20px;
   }
-  .list-labels input[type='checkbox'] {
+  input[type='checkbox' i] {
     height: 20px;
     width: 20px;
   }
-  .list-labels input[type='checkbox']:checked:after {
+  input[type='checkbox' i]:checked:after {
     content: '\\2714';
     font-size: 14px;
     position: absolute;
     top: 0px;
     left: 3px;
     color: #99a1a7;
+  }
+  input[type='checkbox' i]:checked + .item-title {
+    text-decoration: line-through;
   }
   .content-icons {
     display: flex;
@@ -80,11 +83,14 @@ class ListItem extends Component {
       <StyledListItem className="list-item">
         <div className="list-labels">
           <input
+            id={data.id}
             type="checkbox"
-            onChange={() => this.handleClick('completed')}
             checked={data.completed}
+            onChange={() => this.handleClick('completed')}
           />
-          <h3 className="item-title">{data.title}</h3>
+          <label htmlFor={data.id} className="item-title">
+            {data.title}
+          </label>
           <span onClick={() => this.handleClick('starred')}>
             <Icons iconName="star" starred={data.starred} />
           </span>
