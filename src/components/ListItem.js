@@ -51,8 +51,28 @@ const StyledListItem = styled.li`
 `;
 
 class ListItem extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isEditing: false,
+      editValue: props.data.title
+    };
+  }
   handleClick = key => {
     this.props.toggleItem(this.props.data.id, key);
+  };
+  toggleEditing = () => {
+    this.setState({ isEditing: true });
+  };
+  editTitle = event => {
+    this.setState({ editValue: event.target.value });
+  };
+  finishEditing = event => {
+    const { data, editItem } = this.props;
+    if (event.key === 'Enter') {
+      editItem(data.id, this.state.editValue);
+      this.setState({ isEditing: false });
+    }
   };
   renderIcons = () => {
     const { content, due } = this.props.data;
@@ -79,6 +99,7 @@ class ListItem extends Component {
   };
   render() {
     const { data } = this.props;
+    const { isEditing } = this.state;
     return (
       <StyledListItem className="list-item">
         <div className="list-labels">
@@ -88,13 +109,22 @@ class ListItem extends Component {
             checked={data.completed}
             onChange={() => this.handleClick('completed')}
           />
-          <label htmlFor={data.id} className="item-title">
-            {data.title}
-          </label>
+
+          {isEditing ? (
+            <input
+              value={this.state.editValue}
+              onChange={this.editTitle}
+              onKeyPress={this.finishEditing}
+            />
+          ) : (
+            <label htmlFor={data.id} className="item-title">
+              {data.title}
+            </label>
+          )}
           <span onClick={() => this.handleClick('starred')}>
             <Icons iconName="star" starred={data.starred} />
           </span>
-          <span>
+          <span onClick={this.toggleEditing}>
             <Icons iconName="edit-2" />
           </span>
         </div>

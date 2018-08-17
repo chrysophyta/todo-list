@@ -78,7 +78,13 @@ class App extends Component {
     });
     this.setState({ ...data });
   };
-
+  editItem = (id, newTitle) => {
+    const { data } = this.state;
+    const item = data.filter(item => item.id === id);
+    item[0].title = newTitle;
+    this.setState({ ...data, ...item });
+    console.table(this.state.data);
+  };
   handlePaging = selected => {
     // console.log(`from app:${selected}`);
     this.setState({ onTab: selected });
@@ -95,6 +101,7 @@ class App extends Component {
           showList={this.state.onTab}
           toggleItem={this.toggleItem}
           checkItemStar={this.checkItemStar}
+          editItem={this.editItem}
         />
       </StyledApp>
     );
