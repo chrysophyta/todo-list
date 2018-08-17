@@ -9,6 +9,7 @@ const StyledNavItem = styled.li`
   justify-content: center;
   letter-spacing: 0.5px;
   font-weight: 300;
+  opacity: 0.8;
 `;
 
 export default function(props) {
@@ -18,7 +19,7 @@ export default function(props) {
   }
   return (
     <StyledNavItem className={className} onClick={props.onSelect}>
-      {props.label}
+      <p>{props.label}</p>
     </StyledNavItem>
   );
 }

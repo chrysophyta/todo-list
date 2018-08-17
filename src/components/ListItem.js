@@ -35,6 +35,7 @@ const StyledListItem = styled.li`
     background: none;
     border-bottom: 2px solid black;
     font-size: 20px;
+    font-family: 'Playfair Display';
   }
   input:focus {
     outline: none;
@@ -66,7 +67,7 @@ const StyledListItem = styled.li`
   .content-icons {
     display: flex;
     justify-content: flex-start;
-    margin-left: 30px;
+    margin-left: 40px;
     line-height: 50%;
   }
   .content-icons svg {

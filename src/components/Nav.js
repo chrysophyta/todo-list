@@ -16,8 +16,15 @@ const StyledNav = styled.nav`
   }
   .menu-item.active,
   .menu-item:hover {
-    border-left: black 2px solid;
     font-weight: 400;
+    opacity: 1;
+  }
+
+  .active > p:after,
+  .active > p:before,
+  p:hover:before,
+  p:hover:after {
+    content: ' – ';
   }
 `;
 

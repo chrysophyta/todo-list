@@ -17,6 +17,7 @@ input {
 body {
   font-family: 'Roboto', sans-serif;
   background: #e1e1e1;
+  cursor: crosshair;
 }
 
 ul > li {
