@@ -2,18 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledNavItem = styled.li`
-  height: 100%;
+  height: 50%;
   width: calc(100% / 3);
   display: flex;
   align-items: center;
   justify-content: center;
   letter-spacing: 0.5px;
   font-weight: 300;
-  & > .active {
-    color: white;
-    border-bottom: #00408b 4px solid;
-    font-weight: 400;
-  }
 `;
 
 export default function(props) {

@@ -14,6 +14,11 @@ const StyledNav = styled.nav`
     justify-content: space-around;
     align-items: center;
   }
+  .menu-item.active,
+  .menu-item:hover {
+    border-left: black 2px solid;
+    font-weight: 400;
+  }
 `;
 
 export default class Nav extends Component {
