@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
 import feather from 'feather-icons';
 
-const starredStyle = {
-    fill: "yellow"
-}
-class Icons extends Component {
+const style = {
+  width: 24,
+  height: 24,
+  'stroke-width': 1.5
+};
+const filledStyle = {
+  ...style,
+  fill: 'black'
+};
 
+class Icons extends Component {
   render() {
     let SVGcontext;
-    if(this.props.starred){
-       SVGcontext = feather.icons[this.props.iconName].toSvg(starredStyle);
-    }else{
-      SVGcontext = feather.icons[this.props.iconName].toSvg();
+    if (this.props.filled) {
+      SVGcontext = feather.icons[this.props.iconName].toSvg(filledStyle);
+    } else {
+      SVGcontext = feather.icons[this.props.iconName].toSvg(style);
     }
-   
+
     return <div dangerouslySetInnerHTML={{ __html: SVGcontext }} />;
   }
 }

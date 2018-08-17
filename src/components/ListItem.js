@@ -10,33 +10,64 @@ const StyledListItem = styled.li`
   padding: 10px;
   .list-labels {
     display: flex;
-    margin: 10px;
-    justify-content: space-between;
+    margin: 5px 15px;
     align-items: center;
+    position: relative;
+  }
+  .list-labels > span {
+    position: absolute;
+  }
+  .star {
+    right: 50px;
+  }
+  .edit {
+    right: 0;
   }
   .item-title {
+    margin-left: 10px;
     flex-basis: 325px;
     font-size: 20px;
+    font-family: 'Playfair Display';
+  }
+  input {
+    margin-left: 10px;
+    border: none;
+    background: none;
+    border-bottom: 2px solid black;
+    font-size: 20px;
+  }
+  input:focus {
+    outline: none;
   }
   input[type='checkbox' i] {
-    height: 20px;
-    width: 20px;
+    opacity: 0;
   }
-  input[type='checkbox' i]:checked:after {
+  label.item-title:before {
+    content: '';
+    padding: 8px;
+    border: 1px solid black;
+    position: absolute;
+    top: 5px;
+    left: 0px;
+  }
+
+  input[type='checkbox' i]:checked + label.item-title:after {
     content: '\\2714';
     font-size: 14px;
     position: absolute;
-    top: 0px;
+    top: 5px;
     left: 3px;
-    color: #99a1a7;
+    color: black;
   }
   input[type='checkbox' i]:checked + .item-title {
     text-decoration: line-through;
   }
+
   .content-icons {
     display: flex;
     justify-content: flex-start;
     margin-left: 30px;
+    line-height: 50%;
   }
   .content-icons svg {
     height: 15px;
@@ -62,7 +93,7 @@ class ListItem extends Component {
     this.props.toggleItem(this.props.data.id, key);
   };
   toggleEditing = () => {
-    this.setState({ isEditing: true });
+    this.setState({ isEditing: !this.state.isEditing });
   };
   editTitle = event => {
     this.setState({ editValue: event.target.value });
@@ -112,6 +143,7 @@ class ListItem extends Component {
 
           {isEditing ? (
             <input
+              autoFocus
               value={this.state.editValue}
               onChange={this.editTitle}
               onKeyPress={this.finishEditing}
@@ -121,11 +153,11 @@ class ListItem extends Component {
               {data.title}
             </label>
           )}
-          <span onClick={() => this.handleClick('starred')}>
-            <Icons iconName="star" starred={data.starred} />
+          <span className="star" onClick={() => this.handleClick('starred')}>
+            <Icons iconName="star" filled={data.starred} />
           </span>
-          <span onClick={this.toggleEditing}>
-            <Icons iconName="edit-2" />
+          <span className="edit" onClick={this.toggleEditing}>
+            <Icons iconName="edit-2" filled={this.state.isEditing} />
           </span>
         </div>
         <div className="content-icons">{this.renderIcons()}</div>
