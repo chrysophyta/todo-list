@@ -12,9 +12,10 @@ const StyledForm = styled.form`
     margin: auto;
     padding-left: 1.25rem;
     font-size: 1rem;
-    color: lightgray;
+    color: black;
     background: none;
     border: none;
+    border-radius: 0;
     border-bottom: 1px solid black;
   }
   input:focus {
@@ -26,7 +27,8 @@ const StyledForm = styled.form`
     justify-self: flex-end;
   }
   .hide {
-    display: none;
+    height: 0px;
+    border-bottom: none;
   }
 `;
 
@@ -47,6 +49,7 @@ class AddTask extends Component {
     if (this.state.title) {
       this.props.onSubmit(this.state, event);
     }
+    this.refs.title.blur();
     this.setState({ title: '', content: '', due: '', id: '' });
   };
   onInputChange = event => {
@@ -66,6 +69,7 @@ class AddTask extends Component {
           placeholder="＋ Add Task"
           value={this.state.title}
           onChange={this.onInputChange}
+          ref="title"
         />
         <input
           name="content"
