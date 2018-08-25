@@ -99,6 +99,10 @@ class ListItem extends Component {
     this.props.toggleItem(this.props.data.id, key);
   };
   toggleEditing = () => {
+    const { data, editItem } = this.props;
+    if (this.state.isEditing) {
+      editItem(data.id, this.state.editValue);
+    }
     this.setState({ isEditing: !this.state.isEditing });
   };
   editTitle = event => {
