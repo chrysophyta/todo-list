@@ -15,17 +15,22 @@ const StyledNav = styled.nav`
     justify-content: space-around;
     align-items: center;
   }
-  .menu-item.active,
-  .menu-item:hover {
-    font-weight: 700;
+  .menu-item.active {
     opacity: 1;
   }
 
   .active > p:after,
-  .active > p:before,
-  p:hover:before,
-  p:hover:after {
+  .active > p:before {
     content: ' – ';
+  }
+  @media (hover) {
+    .menu-item:hover {
+      opacity: 1;
+    }
+    p:hover:before,
+    p:hover:after {
+      content: ' – ';
+    }
   }
 `;
 
