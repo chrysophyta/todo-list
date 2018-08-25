@@ -28,15 +28,17 @@ const StyledListItem = styled.li`
     font-size: 1.25rem;
     font-family: 'Playfair Display';
   }
-  input {
+  input[type='text'] {
+    width: 50%;
     margin-left: 0.75rem;
     border: none;
     background: none;
     border-bottom: 2px solid black;
+    border-radius: 0px;
     font-size: 1.25rem;
     font-family: 'Playfair Display';
   }
-  input:focus {
+  input[type='text']:focus {
     outline: none;
   }
   input[type='checkbox' i] {
@@ -147,6 +149,7 @@ class ListItem extends Component {
 
           {isEditing ? (
             <input
+              type="text"
               autoFocus
               value={this.state.editValue}
               onChange={this.editTitle}
