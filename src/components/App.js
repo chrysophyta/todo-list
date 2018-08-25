@@ -20,6 +20,11 @@ const StyledApp = styled.div`
     display: block;
     width: 100%;
   }
+  @media (max-width: 459px) {
+    width: 100%;
+    margin: 0px;
+    padding: 30px;
+  }
 `;
 
 class App extends Component {

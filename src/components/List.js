@@ -3,11 +3,15 @@ import ListItem from './ListItem';
 import styled from 'styled-components';
 
 const StyledList = styled.div`
-  width: 460px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   p {
     color: darkgrey;
+  }
+  @media (max-width: 459px) {
+    width: 100%;
+    margin: 0 2rem;
   }
 `;
 

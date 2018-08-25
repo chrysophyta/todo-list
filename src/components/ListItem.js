@@ -7,10 +7,10 @@ const StyledListItem = styled.li`
   flex-direction: column;
   background: #f2f2f2;
   margin-bottom: 10px;
-  padding: 10px;
+  padding: 0.4rem;
   .list-labels {
     display: flex;
-    margin: 5px 15px;
+    margin: 0.25rem 1rem;
     align-items: center;
     position: relative;
   }
@@ -18,23 +18,22 @@ const StyledListItem = styled.li`
     position: absolute;
   }
   .star {
-    right: 50px;
+    right: 3.25rem;
   }
   .edit {
     right: 0;
   }
   .item-title {
-    margin-left: 10px;
-    flex-basis: 325px;
-    font-size: 20px;
+    margin-left: 0.75rem;
+    font-size: 1.25rem;
     font-family: 'Playfair Display';
   }
   input {
-    margin-left: 10px;
+    margin-left: 0.75rem;
     border: none;
     background: none;
     border-bottom: 2px solid black;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-family: 'Playfair Display';
   }
   input:focus {
@@ -45,7 +44,7 @@ const StyledListItem = styled.li`
   }
   label.item-title:before {
     content: '';
-    padding: 8px;
+    padding: 0.5rem;
     border: 1px solid black;
     position: absolute;
     top: 5px;
@@ -67,18 +66,22 @@ const StyledListItem = styled.li`
   .content-icons {
     display: flex;
     justify-content: flex-start;
-    margin-left: 40px;
+    margin-left: 3rem;
     line-height: 50%;
   }
   .content-icons svg {
-    height: 15px;
-    width: 15px;
-    margin: 5px;
+    height: 1rem;
+    width: 1rem;
+    margin: 0.2rem;
   }
   .content-icons span {
     display: flex;
     align-items: center;
     font-size: 10px;
+  }
+  span > div > svg {
+    height: 1.5rem;
+    width: 1.5rem;
   }
 `;
 

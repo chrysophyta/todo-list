@@ -5,12 +5,13 @@ import uuid from 'uuid';
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
+  width: 100%;
   input {
-    height: 45px;
-    width: 460px;
+    height: 3rem;
+    width: 100%;
     margin: auto;
-    padding-left: 20px;
-    font-size: 16px;
+    padding-left: 1.25rem;
+    font-size: 1rem;
     color: lightgray;
     background: none;
     border: none;

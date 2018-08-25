@@ -5,18 +5,19 @@ import styled from 'styled-components';
 
 const StyledNav = styled.nav`
   color: black;
-  font-size: 18px;
-  height: 55px;
+  font-size: 0.9rem;
+  height: 3.5rem;
+  width: 100%;
   ul {
     display: flex;
     height: 100%;
-    width: 460px;
+    width: 100%;
     justify-content: space-around;
     align-items: center;
   }
   .menu-item.active,
   .menu-item:hover {
-    font-weight: 400;
+    font-weight: 700;
     opacity: 1;
   }
 

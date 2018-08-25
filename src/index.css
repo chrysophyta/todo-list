@@ -5,6 +5,9 @@
   font-family: 'Raleway';
   box-sizing: border-box;
 }
+html {
+  font-size: 16px;
+}
 select,
 input {
   /* -webkit-appearance: none; */
@@ -22,4 +25,10 @@ body {
 
 ul > li {
   list-style-type: none;
+}
+
+@media (max-width: 459px) {
+  html {
+    font-size: 12px;
+  }
 }
